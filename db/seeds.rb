@@ -221,5 +221,13 @@ Review.create!({
   rating: 3,
 })
 
+Review.create!({
+  product_id:  12,
+  user_id: 1,
+  description: "Attack ships on fire off the shoulder of Orion.",
+  rating: 3.5,
+})
+
+
 
 puts "DONE!"
