@@ -132,5 +132,94 @@ cat3.products.create!({
   price: 2_483.75
 })
 
+puts "Re-creating Reviews ..."
+
+Review.destroy_all
+
+Review.create!({
+  product_id:  1,
+  user_id: 1,
+  description: "Very cool product I love it :)",
+  rating: 5,
+})
+
+Review.create!({
+  product_id:  2,
+  user_id: 1,
+  description: "Useless and expensive",
+  rating: 1,
+})
+
+Review.create!({
+  product_id:  3,
+  user_id: 1,
+  description: "Kind of ok but kind of not?",
+  rating: 3,
+})
+
+Review.create!({
+  product_id:  4,
+  user_id: 1,
+  description: "AMAZING product thanks!",
+  rating: 1,
+})
+
+Review.create!({
+  product_id:  5,
+  user_id: 1,
+  description: "Meh",
+  rating: 2,
+})
+
+Review.create!({
+  product_id:  6,
+  user_id: 1,
+  description: "What is love?",
+  rating: 4,
+})
+
+
+Review.create!({
+  product_id:  7,
+  user_id: 1,
+  description: "I don't want to be rude but I don't think abortion is healthy for the baby",
+  rating: 5,
+})
+
+Review.create!({
+  product_id:  8,
+  user_id: 1,
+  description: "I could probably do better",
+  rating: 1,
+})
+
+Review.create!({
+  product_id:  9,
+  user_id: 1,
+  description: "Original comment",
+  rating: 5,
+})
+
+Review.create!({
+  product_id:  10,
+  user_id: 1,
+  description: "Hello there!",
+  rating: 4,
+})
+
+Review.create!({
+  product_id:  11,
+  user_id: 1,
+  description: "General Kenobi!",
+  rating: 2,
+})
+
+Review.create!({
+  product_id:  12,
+  user_id: 1,
+  description: "I've seen things you people wouldn't believe.",
+  rating: 3,
+})
+
 
 puts "DONE!"
