@@ -1,7 +1,9 @@
 <section class="cart-show">
 
   <% if !session["user_id"] %>
-  Hello sir you are not logged in, please log in. Log in :) ! <%= link_to "Login, idiot", '/login', class: 'btn btn-lg btn-primary' %>
+  <div class="not_logged_in">
+  <p> Hello sir you are not logged in, please log in. Log in :) ! </p> <%= link_to "Login", '/login', class: 'btn btn-lg btn-primary' %>
+  </div>
       <% else %>
 
   <header class="page-header">

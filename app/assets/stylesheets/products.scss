@@ -88,4 +88,55 @@ main section.products-show {
   }
 }
 
+.not_logged_in {
+  font-size: xx-large;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 270px;
 
+  p {
+    padding-bottom: 10px
+  }
+}
+
+.not_logged_in2 {
+  font-size: xx-large;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 80px;
+
+  p {
+    padding-bottom: 10px
+  }
+}
+
+
+.review_title {
+  font-size: x-large;
+  font-weight: bold;
+}
+
+.average {
+  font-size: 20px;
+  font-weight: bold;
+}
+
+.review_form {
+  font-weight: bold;
+  display: flex;
+  justify-content: center;
+  padding-top: 25px;
+}
+
+.review_button {
+   display: flex;
+   flex-direction: row-reverse;
+   padding-right: 200px;
+}
+
+.single_review {
+  display: flex;
+  flex-direction: column;
+}
