@@ -24,6 +24,15 @@
           <dd><%= @product.price %></dd>
         </dl>
       </div>
+
+      <div>
+        <%= Review.where(product_id: @product.id).first.description  %>
+        <br>
+        <%= Review.where(product_id: @product.id).first.rating %>/5
+        <br>
+        <%= Review.where(product_id: @product.id).first.created_at  %>
+
+      </div>
     </div>
 
   </article>
