@@ -1,11 +1,28 @@
 <h1>Register!</h1>
-
+<div class="register">
 <%= form_for :user, url: '/users' do |f| %>
-
-  Name: <%= f.text_field :name %>
-  Email: <%= f.text_field :email %>
-  Password: <%= f.password_field :password %>
-  Password Confirmation: <%= f.password_field :password_confirmation %>
-  <%= f.submit "Register" %>
-
+      <div class="col-sm-8">
+        <dl class="dl-horizontal">
+          <dt>First Name</dt>
+          <dd><%= f.text_field :first_name %></dd>
+          <br>
+          <dt>Last Name</dt>
+          <dd><%= f.text_field :last_name %></dd>
+          <br>
+          <dt>Email</dt>
+          <dd><%= f.text_field :email %></dd>
+          <br>
+          <dt>Password</dt>
+          <dd><%= f.password_field :password %></dd>
+          <br>
+          <dt>Password Confirmation</dt>
+          <dd><%= f.password_field :password_confirmation %></dd>
+          <br>
+          <div class="register_button"> <%= f.submit "Register" %> </div>
+        </dl>
+      </div>
+</div>
 <% end %>
+
+
+

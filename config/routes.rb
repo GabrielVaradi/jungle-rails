@@ -4,7 +4,6 @@ Rails.application.routes.draw do
 
   resources :products, only: [:index, :show]
   resources :categories, only: [:show]
-  # resources :users, only: [:index, :show]
   get '/register', to: 'users#new'
   post '/users', to: 'users#create'
   get '/login', to: 'session#new'
@@ -21,11 +20,11 @@ Rails.application.routes.draw do
   namespace :admin do
     root to: 'dashboard#show'
     resources :products, except: [:edit, :update, :show]
-    resources :categories, except: [:edit, :update, :show]
+    resources :categories, only: [:new, :index, :create]
   end
 
   resources :products do
-    resources :reviews, only: [:create]
+    resources :reviews, only: [:create, :destroy]
   end
 
 

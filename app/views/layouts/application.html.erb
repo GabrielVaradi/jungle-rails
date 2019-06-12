@@ -9,7 +9,7 @@
 <body>
 
   <% if current_user %>
-  Signed in as <%= current_user.name %> | <%= link_to "Logout", '/logout' %>
+  <div class="signed_in"> Signed in as <%= current_user.first_name %> <%= current_user.last_name %> | <%= link_to "Logout", '/logout' %> </div>
 <% end %>
 
   <%= render 'layouts/top_nav' %>

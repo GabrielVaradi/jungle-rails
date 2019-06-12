@@ -6,15 +6,18 @@
 
   <div class="order-summary jumbotron">
     <h4>Thank you for your order!</h4>
+    <h5><%= @order.email %> </h5>
+
       <div>
         <br>
         <% @order.line_items.each do |item| %>
           <%= render 'item', item: item%>
         <% end %>
         <br>
-        <td>
-    <%= @order.total_cents %>
-  </td>
+        <br>
+        <h4 class="price">
+    Total price : <%= (@order.total_cents/100.0).to_d %>$
+  </h4>
 
       </div>
   </div>

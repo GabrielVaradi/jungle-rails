@@ -12,7 +12,7 @@
         <%= image_tag @product.image.url, class: 'main-img' %>
         <div>
   <% if !session["user_id"] %>
-   <div class="not_logged_in2"> <p> Hello sir, you cannot review if you are not logged in, please login! </p> <%= link_to "Login, idiot", '/login', class: 'btn btn-lg btn-primary' %> </div>
+   <div class="not_logged_in2"> <p> Hello sir, you cannot review if you are not logged in, please login! </p> <%= link_to "Login", '/login', class: 'btn btn-lg btn-primary' %> </div>
   <% else %>
   <div class='review_form'>
     <%= form_for ([@product, @review]) do |f| %>
@@ -21,6 +21,12 @@
     <ul> Rating <%= f.select :rating, ['', '1', '2', '3', '4', '5']%>
     <%= submit_tag "Submit" %> </ul>
   </div>
+  <% if @product.reviews.size == 0 %>
+  <div class="average"> Be the first to review!</div>
+  <% else %>
+  <div class="average"> Average rating : <%= (@product.reviews.sum(:rating)/(@product.reviews.size).to_f).round(2) %>/5</div>
+  <% end %>
+
 <% end %>
 <% end %>
 </div>
@@ -42,23 +48,25 @@
       <div class="col-sm-8">
         <dl class="dl-horizontal">
           <p class="review_title"> Reviews </p>
-          <%total = 0 %>
+
         <% @product.reviews.sort{|a,b| b.created_at <=> a.created_at}.each do |review| %>
-        <div class='single_review'>
+        <div class="single_review">
+          <div>
          <ul> Review :
         <%= review.description  %> </ul>
        <ul> Rating :
         <%= review.rating %>/5</ul>
-        <% total += review.rating %>
         <ul>Created :
         <%= review.created_at %> </ul>
+      </div>
         <% if session["user_id"] == review.user_id%>
-        <div class="review_button"> <%= link_to fa_icon('trash'), [@product], class: 'btn btn-sm btn-danger', method: :delete, data: { confirm: "Are you sure?" }%> </div> </div>
+        <div class="review_button"> <%= link_to fa_icon('trash'), [@product, review], class: 'btn btn-sm btn-danger', method: :delete, data: { confirm: "Are you sure?" }%> </div>
         <% end %>
+        </div>
         <% end %>
+
 </dl>
 
-<div class="average"> Average rating: <%= (total/@product.reviews.size).to_d %>/5 </div>
       </div>
 
     </div>

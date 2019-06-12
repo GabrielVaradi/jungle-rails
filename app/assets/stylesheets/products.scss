@@ -121,6 +121,20 @@ main section.products-show {
 .average {
   font-size: 20px;
   font-weight: bold;
+  display: flex;
+  justify-content: center;
+  padding-top: 30px;
+}
+
+.average_2 {
+  position: absolute;
+  bottom: 0;
+  padding-bottom: inherit;
+  font-size: 20px;
+  font-weight: bold;
+  display: flex;
+  justify-content: center;
+  padding-top: 30px;
 }
 
 .review_form {
@@ -138,5 +152,39 @@ main section.products-show {
 
 .single_review {
   display: flex;
-  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  padding-bottom: 20px;
+}
+
+.price {
+  font-weight: bold;
+}
+
+.signed_in {
+  font-weight: bold;
+  position: absolute;
+  right: 100px;
+}
+
+.categories {
+  width: 100px;
+}
+
+.register_button {
+  display: flex;
+  padding-left: 295px;
+}
+
+.login_button {
+  display: flex;
+  padding-left: 304px;
+}
+
+.login {
+  padding-top: 20px;
+}
+
+.description {
+  padding-bottom: 40px;
 }

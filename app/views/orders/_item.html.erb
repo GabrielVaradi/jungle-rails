@@ -1,13 +1,14 @@
 <tr>
   <td>
-    <h4><%= item.product.name %></h4>
+    <h4><%= item.product.name %> x <%=item.quantity%></h4>
+      <td>
+    <%= image_tag item.product.image.tiny%>
+  </td>
     <br>
     <p><%= item.product.description %></p>
   </td>
-  <td>
-    <%= item.total_price_cents %>
-  </td>
-  <td>
-    <%= image_tag item.product.image.tiny%>
-  </td>
+  <h4 class="price">
+    Price : <%= (item.total_price_cents/100.0).to_d %>$
+  </h4>
 </tr>
+<br>

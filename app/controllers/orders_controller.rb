@@ -10,7 +10,9 @@ class OrdersController < ApplicationController
 
     if order.valid?
       empty_cart!
+      if session["user_id"]
       UserMailer.order_email(User.find(session["user_id"]), order).deliver_now
+      end
       redirect_to order, notice: 'Your Order has been placed.'
 
     else
