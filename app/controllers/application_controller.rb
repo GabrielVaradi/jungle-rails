@@ -38,4 +38,6 @@ class ApplicationController < ActionController::Base
     redirect_to '/login' unless current_user
   end
 
+    http_basic_authenticate_with name: ENV["ADMIN_USERNAME"], password: ENV["ADMIN_PASSWORD"]
+
 end
