@@ -18,7 +18,7 @@
     <%= form_for ([@product, @review]) do |f| %>
     <ul> Write a new review </ul>
     <%= f.text_area :description %>
-    <ul> Rating <%= f.select :rating, ['', '1', '2', '3', '4', '5']%>
+    <ul class="review_buttons"> Rating <%= f.select :rating, ['Select rating', '1', '2', '3', '4', '5']%>
     <%= submit_tag "Submit" %> </ul>
   </div>
 <% end %>
@@ -48,21 +48,33 @@
         <dl class="dl-horizontal">
           <p class="review_title"> Reviews </p>
 
+              <table class="table table-bordered">
+      <thead>
+        <tr>
+          <th>Comment</th>
+          <th>Rating</th>
+          <th>Created at</th>
+          <th> Delete comment </th>
+        </tr>
+      </thead>
         <% @product.reviews.sort{|a,b| b.created_at <=> a.created_at}.each do |review| %>
         <div class="single_review">
-          <div>
-         <ul> Review :
-        <%= review.description  %> </ul>
-       <ul> Rating :
-        <%= review.rating %>/5</ul>
-        <ul>Created :
-        <%= review.created_at %> </ul>
-      </div>
+        <tr>
+        <td><%= review.description %></td>
+        <td><%= review.rating %>/5 </td>
+        <td><%= review.created_at %> </td>
+        <td class="review_delete">
         <% if is_same_user?(session, review)%>
         <div class="review_button"> <%= link_to fa_icon('trash'), [@product, review], class: 'btn btn-sm btn-danger', method: :delete, data: { confirm: "Are you sure?" }%> </div>
-        <% end %>
+        <% else %>
+        <div class="review_button"> <%= link_to fa_icon('trash'), [@product], class: 'btn btn-sm btn-danger', disabled: :true %> </div>
+        <% end %> </td>
+        </tr>
         </div>
         <% end %>
+
+        </table>
+
 
 </dl>
 
@@ -73,3 +85,4 @@
   </article>
 
 </section>
+

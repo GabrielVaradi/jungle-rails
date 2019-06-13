@@ -1,14 +1,24 @@
 <tr>
   <td>
-    <h4><%= item.product.name %> x <%=item.quantity%></h4>
-      <td>
-    <%= image_tag item.product.image.tiny%>
-  </td>
-    <br>
-    <p><%= item.product.description %></p>
-  </td>
+    <h4><%= item.product.name %> </h4>
+    <h4> x <%=item.quantity%></h4>
+</td>
+<td>
+  <h4><%= item.product.description %></h4>
+</td>
+<td>
   <h4 class="price">
-    Price : <%= humanized_money_with_symbol item.total_price_cents/100.0 %>
+    <%= humanized_money_with_symbol item.total_price_cents/100.0 %>
   </h4>
+</td>
+<td>
+  <%= image_tag item.product.image.tiny%>
+</td>
 </tr>
-<br>
+
+
+
+
+
+
+

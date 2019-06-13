@@ -136,7 +136,7 @@ main section.products-show {
   font-weight: bold;
   display: flex;
   justify-content: center;
-  padding-top: 30px;
+  padding-top: 50px;
 }
 
 .average_2 {
@@ -159,8 +159,17 @@ main section.products-show {
 
 .review_button {
    display: flex;
-   flex-direction: row-reverse;
-   padding-right: 200px;
+   justify-content: center;
+
+}
+
+.review_delete {
+  width: 10px;
+}
+
+.review_buttons {
+  right: 80px;
+  position: absolute;
 }
 
 .single_review {
@@ -200,4 +209,10 @@ main section.products-show {
 
 .description {
   padding-bottom: 40px;
+}
+
+.empty_product {
+  position: absolute;
+  padding-top: 38px;
+  z-index: 2;
 }

@@ -13,7 +13,9 @@ class OrdersController < ApplicationController
       if session["user_id"]
       UserMailer.order_email(User.find(session["user_id"]), order).deliver_now
       end
-      redirect_to order, notice: 'Your Order has been placed.'
+      redirect_to order
+      flash[:success] = "Your order has been placed."
+
 
     else
       redirect_to cart_path, flash: { error: order.errors.full_messages.first }

@@ -2,7 +2,9 @@ Rails.application.routes.draw do
 
   root to: 'products#index'
 
-  resources :products, only: [:index, :show]
+  resources :products, only: [:index, :show] do
+    resources :reviews, only: [:create, :destroy]
+  end
   resources :categories, only: [:show]
   get '/register', to: 'users#new'
   post '/users', to: 'users#create'
@@ -22,11 +24,6 @@ Rails.application.routes.draw do
     resources :products, except: [:edit, :update, :show]
     resources :categories, only: [:new, :index, :create]
   end
-
-  resources :products do
-    resources :reviews, only: [:create, :destroy]
-  end
-
 
 
   # The priority is based upon order of creation: first created -> highest priority.

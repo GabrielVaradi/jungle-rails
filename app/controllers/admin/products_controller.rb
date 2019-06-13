@@ -12,7 +12,9 @@ class Admin::ProductsController < Admin::BaseController
     @product = Product.new(product_params)
 
     if @product.save
-      redirect_to [:admin, :products], notice: 'Product created!'
+      redirect_to [:admin, :products]
+      flash[:success] = "Product created."
+
     else
       render :new
     end

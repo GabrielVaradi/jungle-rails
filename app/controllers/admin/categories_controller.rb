@@ -12,7 +12,8 @@ class Admin::CategoriesController < Admin::BaseController
     @category = Category.new(category_params)
 
     if @category.save
-      redirect_to [:admin, :categories], notice: 'Category created!'
+      redirect_to [:admin, :categories]
+      flash[:success] = "Category created."
 
     else
       render :new
