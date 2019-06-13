@@ -11,8 +11,8 @@
       <div class="col-sm-4">
         <%= image_tag @product.image.url, class: 'main-img' %>
         <div>
-  <% if !session["user_id"] %>
-   <div class="not_logged_in2"> <p> Hello sir, you cannot review if you are not logged in, please login! </p> <%= link_to "Login", '/login', class: 'btn btn-lg btn-primary' %> </div>
+  <% if !logged_in?(session) %>
+   <div class="not_logged_in3"> <p> Hello sir, you cannot review if you are not logged in, please login! </p> <%= link_to "Login", '/login', class: 'btn btn-lg btn-primary' %> </div>
   <% else %>
   <div class='review_form'>
     <%= form_for ([@product, @review]) do |f| %>
@@ -21,7 +21,7 @@
     <ul> Rating <%= f.select :rating, ['', '1', '2', '3', '4', '5']%>
     <%= submit_tag "Submit" %> </ul>
   </div>
-  <% if @product.reviews.size == 0 %>
+  <% if is_review_empty?(product) %>
   <div class="average"> Be the first to review!</div>
   <% else %>
   <div class="average"> Average rating : <%= (@product.reviews.sum(:rating)/(@product.reviews.size).to_f).round(2) %>/5</div>
@@ -59,7 +59,7 @@
         <ul>Created :
         <%= review.created_at %> </ul>
       </div>
-        <% if session["user_id"] == review.user_id%>
+        <% if is_same_user?(session, review)%>
         <div class="review_button"> <%= link_to fa_icon('trash'), [@product, review], class: 'btn btn-sm btn-danger', method: :delete, data: { confirm: "Are you sure?" }%> </div>
         <% end %>
         </div>

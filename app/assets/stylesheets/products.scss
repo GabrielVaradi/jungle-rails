@@ -112,6 +112,19 @@ main section.products-show {
   }
 }
 
+.not_logged_in3 {
+  font-size: x-large;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 80px;
+
+  p {
+    padding-bottom: 10px
+  }
+}
+
+
 
 .review_title {
   font-size: x-large;

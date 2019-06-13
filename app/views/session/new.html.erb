@@ -1,5 +1,5 @@
 
-<% if session["user_id"]%>
+<% if logged_in(session)%>
 <div class="not_logged_in">
   <p> You're already logged in! </p> <%= link_to "Continue shopping", '/products', class: 'btn btn-lg btn-primary' %>
   </div>

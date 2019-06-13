@@ -4,7 +4,7 @@
     <h1>My Cart</h1>
   </header>
 
-  <% if cart.size == 0 %>
+  <% if is_cart_empty?(cart) %>
      <p class="not_logged_in"> Hello sir your cart is empty, please buy something first! <%= link_to "Resume Shopping", root_path, class: 'btn btn-lg btn-primary' %> </p>
       <% else %>
 
