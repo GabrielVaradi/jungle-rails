@@ -5,9 +5,9 @@ A mini e-commerce application built with Rails 4.2 for purposes of teaching Rail
 ##Final Product
 
 
-!["Main page"]()
-!["Single product"]()
-!["Order confirmed"]()
+!["Main page"](https://github.com/GabrielVaradi/jungle-rails/blob/master/docs/main_page.png)
+!["Single product"](https://github.com/GabrielVaradi/jungle-rails/blob/master/docs/single_product.png)
+!["Order confirmed"](https://github.com/GabrielVaradi/jungle-rails/blob/master/docs/confirm_order.png)
 
 
 
