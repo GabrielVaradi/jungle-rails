@@ -16,7 +16,8 @@
         <br>
         <br>
         <h4 class="price">
-    Total price : <%= (@order.total_cents/100.0).to_d %>$
+    Total price : <%= humanized_money_with_symbol @order.total_cents/100.0 %>
+
   </h4>
 
       </div>

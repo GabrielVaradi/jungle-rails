@@ -12,6 +12,7 @@ end
       redirect_to [:products], notice: 'Registered!'
       session[:user_id] = @user.id
     else
+      flash[:error] = @user.errors.full_messages.to_sentence
       render :new
     end
   end

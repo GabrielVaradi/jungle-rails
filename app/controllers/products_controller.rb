@@ -9,11 +9,4 @@ class ProductsController < ApplicationController
     @review = Review.new
   end
 
-   def destroy
-    @review = Review.find(1)
-    @review.destroy
-    redirect_to product_path(@review.product_id), notice: 'Review deleted!'
-  end
-
-
 end

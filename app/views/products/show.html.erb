@@ -21,14 +21,13 @@
     <ul> Rating <%= f.select :rating, ['', '1', '2', '3', '4', '5']%>
     <%= submit_tag "Submit" %> </ul>
   </div>
+<% end %>
+<% end %>
   <% if is_review_empty?(@product) %>
   <div class="average"> Be the first to review!</div>
   <% else %>
   <div class="average"> Average rating : <%= (@product.reviews.sum(:rating)/(@product.reviews.size).to_f).round(2) %>/5</div>
   <% end %>
-
-<% end %>
-<% end %>
 </div>
       </div>
 

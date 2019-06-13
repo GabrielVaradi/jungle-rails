@@ -9,6 +9,7 @@ class ReviewsController < ApplicationController
       if @review.save
        redirect_to product_path(@review.product_id), notice: 'Review created!'
       else
+       flash[:error] = @review.errors.full_messages.to_sentence
        redirect_to product_path(@review.product_id)
       end
     end
