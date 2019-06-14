@@ -13,14 +13,13 @@
   <% else %>
   <div class="average_2"> Average rating : <%= (product.reviews.sum(:rating)/(product.reviews.size).to_f).round(2) %>/5</div>
   <% end %>
+  <footer class="actions">
   <% if out_of_stock?(product) %>
   <div class="empty_product"> <%= fa_icon "shopping-cart", text: 'Empty' %> </div>
-    <footer class="actions">  <%= link_to product, class: 'btn btn-default pull-right' do %>
-      Details &raquo;
-      <% end %>
-    </footer>
+    <%= link_to product, class: 'btn btn-default pull-right' do %>
+    Details &raquo;
+  <% end %>
   <% else %>
-  <footer class="actions">
     <%= button_to add_item_cart_path(product_id: product.id), class: 'btn btn-primary' , method: :post do %>
       <%= fa_icon "shopping-cart", text: 'Add' %>
     <% end %>
