@@ -5,11 +5,8 @@
     <meta content='text/html; charset=UTF-8' http-equiv='Content-Type' />
   </head>
   <body>
-    <h1>Welcome to jungle.com, <%= @user.first_name %></h1>
-    <p>
-      You have successfully signed up to example.com,
-      your username is: <%= @user.first_name %>.<br>
-    </p>
+    <h1>Welcome to jungle.com</h1>
+
     <div>
     Your order sums up to : <%= @order.total_cents %>
 You bought : <% @order.line_items.each do |item| %>
