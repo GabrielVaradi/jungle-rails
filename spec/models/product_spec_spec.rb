@@ -4,7 +4,7 @@ RSpec.describe Product, type: :model do
   describe 'Validations' do
 
   context "when all the attributes are provided" do
-    it 'is name valid' do
+    it 'is valid' do
       product = Product.new
       category = Category.new
       product.category = category
@@ -18,9 +18,13 @@ RSpec.describe Product, type: :model do
 
   context "when name is not provided" do
       product = Product.new
+      category = Category.new
+      product.category = category
       product.name = nil
+      product.price = 10
+      product.quantity = 5
+      product.valid?
     it 'is not valid' do
-
       expect(product).to_not be_valid
     end
 
@@ -32,7 +36,12 @@ RSpec.describe Product, type: :model do
 
   context "when price is not provided" do
       product = Product.new
+      category = Category.new
+      product.category = category
+      product.name = "potato"
       product.price = nil
+      product.quantity = 5
+      product.valid?
 
     it 'is not valid' do
       expect(product).to_not be_valid
@@ -46,7 +55,12 @@ RSpec.describe Product, type: :model do
 
   context "when quantity is not provided" do
     product = Product.new
-    product.quantity = nil
+      category = Category.new
+      product.category = category
+      product.name = "potato"
+      product.price = 10
+      product.quantity = nil
+      product.valid?
 
     it 'is not valid' do
       expect(product).to_not be_valid
@@ -61,8 +75,11 @@ RSpec.describe Product, type: :model do
   context "when category is not provided" do
       product = Product.new
       category = Category.new
-      product.category = category
       product.category = nil
+      product.name = "potato"
+      product.price = 10
+      product.quantity = 5
+      product.valid?
     it 'is not valid' do
       expect(product).to_not be_valid
     end
